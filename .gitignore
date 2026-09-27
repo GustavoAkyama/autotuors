@@ -2,19 +2,19 @@
 node_modules/
 
 # Gerados pela ferramenta: ficam só na sua máquina
-output/
-mocks/
-.cache/
+/output/
+/mocks/
+/.cache/
 # (as telas do exemplo vão junto, para ele aparecer completo na interface)
-captures/*
-!captures/exemplo/
+/captures/*
+!/captures/exemplo/
 
 # Logins salvos (cookies da sua conta): nunca publique
-sessions/
+/sessions/
 
 # Suas gravações; só os exemplos vão para o git
-tours/*
-!tours/exemplo.json
+/tours/*
+!/tours/exemplo.json
 
 # Configurações locais
 .claude/settings.local.json

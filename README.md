@@ -52,7 +52,7 @@ Você precisa de:
 - [ffmpeg](https://ffmpeg.org/download.html) 7 ou mais novo, no `PATH`.
 
 ```sh
-git clone https://github.com/SEU-USUARIO/autotours.git
+git clone https://github.com/GustavoAkyama/autotours.git
 cd autotours
 pnpm install
 pnpm setup:piper   # instala a voz da narração (~85 MB, em .cache/)

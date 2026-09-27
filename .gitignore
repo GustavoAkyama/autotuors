@@ -18,6 +18,7 @@ tours/*
 
 # Configurações locais
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
 .env*
 
 # Sistema e editores

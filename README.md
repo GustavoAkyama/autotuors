@@ -13,6 +13,14 @@ Você faz o passo a passo no Chrome; sai um MP4 com cursor animado, legendas, zo
 
 </div>
 
+## Veja em 2 minutos
+
+<!-- Troque a linha abaixo pelo link que o GitHub gera ao arrastar o apresentacao.mp4 para este editor. -->
+
+VIDEO_APRESENTACAO
+
+<sub>Este vídeo foi gravado com o próprio Autotours.</sub>
+
 ## Como funciona
 
 1. **Grave.** Informe o endereço do site e faça o passo a passo numa janela do Chrome, como se estivesse ensinando alguém.

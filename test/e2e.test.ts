@@ -1,6 +1,7 @@
 // Records the fixture site in a headless Chrome and makes its video: the whole
 // flow, end to end. Needs Google Chrome, ffmpeg and Piper (pnpm setup:piper).
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import { test } from "node:test";
 import type { Page } from "playwright-core";
@@ -110,6 +111,19 @@ test(
       });
       assert.equal(site.posts(), 1, "a reprodução respondeu o POST com o mock");
       assert.ok(audioDuration(video) > 20, "o vídeo tem a duração esperada");
+      assert.equal(
+        execFileSync(
+          "ffprobe",
+          [
+            ...["-v", "error", "-select_streams", "v:0"],
+            ...["-show_entries", "stream=pix_fmt,profile", "-of", "csv=p=0"],
+            video,
+          ],
+          { encoding: "utf8" },
+        ).trim(),
+        "High,yuv420p",
+        "o vídeo toca em qualquer celular (H.264 High, 4:2:0)",
+      );
       assert.deepEqual(warnings, []);
     } finally {
       site.close();

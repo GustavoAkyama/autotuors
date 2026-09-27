@@ -1,9 +1,19 @@
 import { spawn } from "node:child_process";
 
-/** H.264 tagged as BT.709, so players show the colors the browser rendered. */
+/**
+ * H.264 tagged as BT.709, so players show the colors the browser rendered.
+ * 4:2:0 in the High profile plays everywhere: without `-pix_fmt`, the filters
+ * can hand x264 4:4:4, which phones, WhatsApp and Discord refuse to play.
+ */
 export const h264Output = [
   "-c:v",
   "libx264",
+  "-pix_fmt",
+  "yuv420p",
+  "-profile:v",
+  "high",
+  "-level:v",
+  "4.1",
   "-preset",
   "slow",
   "-crf",

@@ -1,0 +1,163 @@
+/* Captions and focus ring drawn over the recorded site. The theme in
+   tour.config.ts overrides these variables. */
+:root {
+  --tour-primary: #2563eb;
+  --tour-accent: #60a5fa;
+  --tour-surface: #18181b;
+  --tour-text: #fafafa;
+  --tour-font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@keyframes tour-ring-in {
+  from {
+    opacity: 0;
+    scale: 1.06;
+  }
+}
+
+@keyframes tour-ring-breathe {
+  0%,
+  100% {
+    outline-offset: 3px;
+  }
+  50% {
+    outline-offset: 5px;
+  }
+}
+
+@keyframes tour-caption-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+@keyframes tour-caption-out {
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+
+/* The focus area: a crisp outline around the element and a soft dimming of
+   everything else, so the eye goes straight to it. */
+.tour-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+  border-radius: 10px;
+  border: 2px solid var(--tour-primary);
+  outline: 4px solid color-mix(in srgb, var(--tour-primary) 22%, transparent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 100vmax rgb(9 9 11 / 0.2);
+  opacity: 0;
+  transition: opacity 240ms ease-out;
+}
+
+.tour-ring.is-visible {
+  opacity: 1;
+  animation:
+    tour-ring-in 320ms cubic-bezier(0.2, 0.7, 0.3, 1),
+    tour-ring-breathe 2.6s ease-in-out 320ms infinite;
+}
+
+.tour-ring.is-leaving {
+  opacity: 0;
+  transition-duration: 180ms;
+}
+
+/* The caption card. */
+.driver-popover.tour-caption {
+  z-index: 2147483647 !important;
+  min-width: 260px;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 16px 18px 14px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 14px;
+  background: var(--tour-surface);
+  color: var(--tour-text);
+  font-family: var(--tour-font);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.2),
+    0 20px 48px -16px rgb(0 0 0 / 0.45);
+  animation: tour-caption-in 300ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.driver-popover.tour-caption.is-leaving {
+  animation: tour-caption-out 180ms ease-in forwards;
+}
+
+.tour-caption .driver-popover-title {
+  font: 600 16px/1.35 var(--tour-font);
+  letter-spacing: -0.01em;
+  color: var(--tour-text);
+}
+
+.tour-caption .driver-popover-description {
+  margin-top: 4px;
+  font: 400 14px/1.45 var(--tour-font);
+  color: color-mix(in srgb, var(--tour-text) 72%, transparent);
+}
+
+.tour-caption .driver-popover-footer {
+  margin-top: 14px;
+}
+
+/* "2 de 5" and a segmented bar in place of driver.js' progress text. */
+.tour-caption .driver-popover-progress-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  line-height: 1;
+}
+
+.tour-caption .tour-step-count {
+  flex: none;
+  font: 500 12px/1 var(--tour-font);
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, var(--tour-text) 55%, transparent);
+}
+
+.tour-caption .tour-step-bar {
+  display: flex;
+  flex: 1;
+  gap: 3px;
+}
+
+.tour-caption .tour-step-bar i {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--tour-text) 16%, transparent);
+}
+
+.tour-caption .tour-step-bar i.is-done {
+  background: color-mix(in srgb, var(--tour-accent) 55%, transparent);
+}
+
+.tour-caption .tour-step-bar i.is-active {
+  background: var(--tour-accent);
+}
+
+.tour-caption .driver-popover-arrow {
+  border-width: 7px;
+}
+
+.tour-caption .driver-popover-arrow-side-left {
+  border-left-color: var(--tour-surface);
+}
+
+.tour-caption .driver-popover-arrow-side-right {
+  border-right-color: var(--tour-surface);
+}
+
+.tour-caption .driver-popover-arrow-side-top {
+  border-top-color: var(--tour-surface);
+}
+
+.tour-caption .driver-popover-arrow-side-bottom {
+  border-bottom-color: var(--tour-surface);
+}

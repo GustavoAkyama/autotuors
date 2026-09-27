@@ -1,0 +1,67 @@
+{
+  "url": "https://demo.playwright.dev/todomvc/#/",
+  "goal": "Criar e concluir tarefas no TodoMVC",
+  "width": 1280,
+  "zoom": true,
+  "narrate": true,
+  "intro": {
+    "title": "Organize suas tarefas",
+    "subtitle": "Um exemplo com o TodoMVC"
+  },
+  "outro": {
+    "title": "Pronto!",
+    "subtitle": "Agora grave o tour do seu site."
+  },
+  "steps": [
+    {
+      "action": "type",
+      "target": "internal:role=textbox[name=\"What needs to be done?\"i]",
+      "text": "Comprar café",
+      "caption": {
+        "title": "Anote a tarefa",
+        "description": "Escreva no campo “What needs to be done?” e tecle Enter."
+      }
+    },
+    {
+      "action": "press",
+      "key": "Enter"
+    },
+    {
+      "action": "type",
+      "target": "internal:role=textbox[name=\"What needs to be done?\"i]",
+      "text": "Responder e-mails",
+      "caption": {
+        "title": "Adicione outra",
+        "description": "Cada Enter cria uma tarefa nova na lista."
+      }
+    },
+    {
+      "action": "press",
+      "key": "Enter"
+    },
+    {
+      "action": "check",
+      "target": "internal:role=listitem >> internal:has-text=\"Comprar café\"i >> internal:label=\"Toggle Todo\"i",
+      "caption": {
+        "title": "Conclua uma tarefa",
+        "description": "Marque o círculo ao lado de “Comprar café” quando terminar."
+      }
+    },
+    {
+      "action": "click",
+      "target": "internal:role=link[name=\"Completed\"i]",
+      "caption": {
+        "title": "Veja o que já fez",
+        "description": "O filtro “Completed” mostra só as tarefas concluídas."
+      }
+    }
+  ],
+  "blockUnmocked": true,
+  "voice": {
+    "provider": "kokoro",
+    "voice": "pm_santa"
+  },
+  "music": {
+    "track": "wallpaper"
+  }
+}

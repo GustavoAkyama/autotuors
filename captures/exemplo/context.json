@@ -1,0 +1,111 @@
+{
+  "goal": "Criar e concluir tarefas no TodoMVC",
+  "steps": [
+    {
+      "step": 1,
+      "action": "type",
+      "target": "internal:role=textbox[name=\"What needs to be done?\"i]",
+      "label": "What needs to be done?",
+      "role": "textbox",
+      "url": "https://demo.playwright.dev/todomvc/#/",
+      "title": "React • TodoMVC",
+      "region": "",
+      "transient": false,
+      "rect": {
+        "x": 365,
+        "y": 175,
+        "width": 550,
+        "height": 66
+      },
+      "screenshot": "captures/exemplo/01.jpg"
+    },
+    {
+      "step": 2,
+      "action": "press",
+      "label": "What needs to be done?",
+      "role": "textbox",
+      "url": "https://demo.playwright.dev/todomvc/#/",
+      "title": "React • TodoMVC",
+      "region": "",
+      "transient": false,
+      "rect": {
+        "x": 365,
+        "y": 175,
+        "width": 550,
+        "height": 66
+      },
+      "screenshot": "captures/exemplo/02.jpg"
+    },
+    {
+      "step": 3,
+      "action": "type",
+      "target": "internal:role=textbox[name=\"What needs to be done?\"i]",
+      "label": "What needs to be done?",
+      "role": "textbox",
+      "url": "https://demo.playwright.dev/todomvc/#/",
+      "title": "React • TodoMVC",
+      "region": "",
+      "transient": false,
+      "rect": {
+        "x": 365,
+        "y": 175,
+        "width": 550,
+        "height": 66
+      },
+      "screenshot": "captures/exemplo/03.jpg"
+    },
+    {
+      "step": 4,
+      "action": "press",
+      "label": "What needs to be done?",
+      "role": "textbox",
+      "url": "https://demo.playwright.dev/todomvc/#/",
+      "title": "React • TodoMVC",
+      "region": "",
+      "transient": false,
+      "rect": {
+        "x": 365,
+        "y": 175,
+        "width": 550,
+        "height": 66
+      },
+      "screenshot": "captures/exemplo/04.jpg"
+    },
+    {
+      "step": 5,
+      "action": "check",
+      "target": "internal:role=listitem >> internal:has-text=\"Comprar café\"i >> internal:label=\"Toggle Todo\"i",
+      "label": "Toggle Todo",
+      "role": "listitem",
+      "url": "https://demo.playwright.dev/todomvc/#/",
+      "title": "React • TodoMVC",
+      "region": "",
+      "transient": false,
+      "rect": {
+        "x": 365,
+        "y": 251,
+        "width": 40,
+        "height": 40
+      },
+      "screenshot": "captures/exemplo/05.jpg"
+    },
+    {
+      "step": 6,
+      "action": "click",
+      "target": "internal:role=link[name=\"Completed\"i]",
+      "label": "Completed",
+      "role": "link",
+      "url": "https://demo.playwright.dev/todomvc/#/",
+      "title": "React • TodoMVC",
+      "region": "",
+      "transient": false,
+      "rect": {
+        "x": 651,
+        "y": 368,
+        "width": 84,
+        "height": 24
+      },
+      "screenshot": "captures/exemplo/06.jpg"
+    }
+  ]
+}

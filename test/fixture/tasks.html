@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minhas tarefas</title>
+    <style>
+      body {
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+        margin: 0;
+        background: #f5f6f8;
+        color: #15151b;
+      }
+      header {
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 16px 32px;
+      }
+      main {
+        padding: 32px;
+        max-width: 720px;
+        display: grid;
+        gap: 16px;
+      }
+      form {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 20px;
+        display: grid;
+        gap: 12px;
+      }
+      label {
+        display: grid;
+        gap: 4px;
+      }
+      input[type="text"],
+      select {
+        font: inherit;
+        padding: 8px 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+      }
+      .inline {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      button {
+        font: inherit;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 0;
+        background: #2563eb;
+        color: #fff;
+        cursor: pointer;
+        justify-self: start;
+      }
+      #toast {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #15151b;
+        color: #fff;
+        padding: 12px 16px;
+        border-radius: 10px;
+      }
+      #toast button {
+        background: transparent;
+        padding: 0 0 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header><strong>Minhas tarefas</strong></header>
+    <main>
+      <form id="form">
+        <label>Título <input type="text" id="title" name="title" /></label>
+        <label for="priority">Prioridade</label>
+        <select id="priority">
+          <option value="low">Baixa</option>
+          <option value="high">Alta</option>
+        </select>
+        <label class="inline"
+          ><input type="checkbox" id="urgent" /> Urgente</label
+        >
+        <button type="submit">Salvar</button>
+      </form>
+      <ul id="list" aria-label="Tarefas"></ul>
+      <button type="button" id="connect">Conectar conta</button>
+      <p id="connected" hidden>Conta conectada.</p>
+    </main>
+    <script>
+      const form = document.getElementById("form");
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const response = await fetch("/api/tasks", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            title: document.getElementById("title").value,
+          }),
+        });
+        const task = await response.json();
+        const item = document.createElement("li");
+        item.textContent = task.title ?? "(sem título)";
+        document.getElementById("list").append(item);
+        const toast = document.createElement("div");
+        toast.id = "toast";
+        toast.setAttribute("role", "status");
+        toast.innerHTML = 'Tarefa criada <button type="button">Fechar</button>';
+        toast.querySelector("button").onclick = () => toast.remove();
+        document.body.append(toast);
+        setTimeout(() => toast.remove(), 4000);
+      });
+      document.getElementById("connect").onclick = () =>
+        window.open("/oauth.html", "oauth", "width=480,height=560");
+      window.addEventListener("message", (event) => {
+        if (event.data === "connected")
+          document.getElementById("connected").hidden = false;
+      });
+    </script>
+  </body>
+</html>

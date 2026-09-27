@@ -1,0 +1,30 @@
+{
+  "name": "autotours",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Grave tours em vídeo de qualquer site: faça o passo a passo no Chrome e receba um MP4 com cursor animado, legendas, zoom e narração.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "ui": "node src/cli/ui.ts",
+    "record": "node src/cli/record.ts",
+    "play": "node src/cli/play.ts",
+    "session": "node src/cli/session.ts",
+    "setup:piper": "node src/cli/setup-piper.ts",
+    "typecheck": "tsc",
+    "test": "node --test \"test/unit/**/*.test.ts\"",
+    "test:e2e": "node --test test/e2e.test.ts"
+  },
+  "dependencies": {
+    "driver.js": "^1.8.0",
+    "playwright-core": "1.63.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.3",
+    "typescript": "^5.9.3"
+  }
+}

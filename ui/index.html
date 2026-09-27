@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autotours</title>
+    <link rel="icon" href="/ui/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/ui/styles.css" />
+    <script type="module" src="/ui/js/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#/">
+          <img src="/ui/favicon.svg" alt="" width="24" height="24" />
+          <span>Autotours</span>
+        </a>
+        <a class="button primary small" id="new-button" href="#/novo">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
+          Novo tour
+        </a>
+      </div>
+    </header>
+    <div class="banners" id="banners"></div>
+    <main class="page" id="view"></main>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+  </body>
+</html>

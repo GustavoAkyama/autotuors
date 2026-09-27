@@ -1,0 +1,28 @@
+# Dependências
+node_modules/
+
+# Gerados pela ferramenta: ficam só na sua máquina
+output/
+mocks/
+.cache/
+# (as telas do exemplo vão junto, para ele aparecer completo na interface)
+captures/*
+!captures/exemplo/
+
+# Logins salvos (cookies da sua conta): nunca publique
+sessions/
+
+# Suas gravações; só os exemplos vão para o git
+tours/*
+!tours/exemplo.json
+
+# Configurações locais
+.claude/settings.local.json
+.env*
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

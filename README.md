@@ -17,7 +17,7 @@ Você faz o passo a passo no Chrome; sai um MP4 com cursor animado, legendas, zo
 
 <!-- Troque a linha abaixo pelo link que o GitHub gera ao arrastar o apresentacao.mp4 para este editor. -->
 
-VIDEO_APRESENTACAO
+https://github.com/user-attachments/assets/d237d26a-ea33-40c1-8827-60449b6d9b1b
 
 <sub>Este vídeo foi gravado com o próprio Autotours.</sub>
 
